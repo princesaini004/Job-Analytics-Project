@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Global Internship & Job Market Analytics — internship project presentation by Prince Saini.">
+<title>JobAnalytics | Global Internship & Job Market Analytics</title>
+<style>
+:root{
+  --bg:#020817; --bg2:#071326; --panel:#071021; --panel2:#0a1729;
+  --text:#f5f8ff; --muted:#91a4c1; --line:rgba(148,163,184,.16);
+  --cyan:#00d7e5; --cyan2:#20bfff; --blue:#4d82ff; --violet:#7c7cff;
+  --glow:rgba(0,215,229,.18); --shadow:0 24px 70px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text); background:
+  radial-gradient(circle at 78% 22%,rgba(0,215,229,.08),transparent 24%),
+  radial-gradient(circle at 8% 18%,rgba(77,130,255,.08),transparent 25%),
+  linear-gradient(145deg,#020817,#050c1b 55%,#020817);
+  min-height:100vh;line-height:1.55;overflow-x:hidden
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(1248px,92%);margin:auto}
+nav{
+  position:sticky;top:0;z-index:1000;height:70px;
+  background:rgba(2,8,23,.84);backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line)
+}
+.nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;min-width:260px}
+.brand-mark{
+  width:40px;height:40px;border-radius:12px;display:grid;place-items:center;
+  background:var(--cyan);color:#02101a;font-weight:950;box-shadow:0 0 28px rgba(0,215,229,.28)
+}
+.brand-title{font-weight:900;font-size:1.04rem}
+.brand-title small{display:inline-block;margin-left:7px;color:var(--cyan);border:1px solid rgba(0,215,229,.3);border-radius:999px;padding:2px 7px;font-size:.62rem}
+.brand-sub{display:block;color:#7f91ad;font-size:.7rem;font-weight:500;margin-top:-2px}
+.nav-links{
+  display:flex;align-items:center;gap:2px;padding:5px 10px;border:1px solid var(--line);
+  background:rgba(12,24,43,.68);border-radius:999px
+}
+.nav-links a{padding:10px 16px;color:#b8c4d8;font-size:.82rem;font-weight:750;border-radius:999px}
+.nav-links a:hover{color:white;background:rgba(255,255,255,.05)}
+.nav-cta,.btn.primary{
+  background:var(--cyan);color:#021018;border:0;border-radius:999px;
+  padding:11px 18px;font-weight:900;box-shadow:0 10px 30px rgba(0,215,229,.16)
+}
+.hero{padding:84px 0 76px}
+.hero-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:58px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;
+  border:1px solid rgba(0,215,229,.27);background:rgba(0,215,229,.055);
+  color:var(--cyan);font:700 .68rem ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.8px;text-transform:uppercase
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+h1{font-size:clamp(3.2rem,6vw,5.9rem);line-height:.98;letter-spacing:-.065em;margin:22px 0}
+.gradient{background:linear-gradient(95deg,#fff 25%,var(--cyan) 58%,var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:720px;color:#b0c0d7;font-size:1.05rem}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 19px;border-radius:13px;border:1px solid var(--line);font-weight:850}
+.btn.secondary{background:rgba(255,255,255,.035);color:#eaf0fa}
+.hero-card{
+  position:relative;border:1px solid rgba(148,163,184,.18);border-radius:22px;padding:20px;
+  background:linear-gradient(145deg,rgba(13,30,52,.92),rgba(5,15,29,.9));box-shadow:var(--shadow)
+}
+.windowbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;color:#899bb5;font-size:.72rem}
+.window-dots{display:flex;gap:7px}.window-dots i{width:11px;height:11px;border-radius:50%;display:block}
+.window-dots i:nth-child(1){background:#ff315d}.window-dots i:nth-child(2){background:#f6ae25}.window-dots i:nth-child(3){background:#00bda8}
+.live{color:var(--cyan);border:1px solid rgba(0,215,229,.22);border-radius:999px;padding:5px 9px}
+.metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.metric-card{background:#040d1d;border-radius:16px;padding:17px}
+.metric-card span{display:block;color:#8fa2bd;font-size:.72rem}
+.metric-card strong{display:block;font-size:1.05rem;margin:4px 0}
+.metric-card em{font-style:normal;color:var(--cyan);font-size:.65rem}
+.work-bars{margin-top:12px;background:#040d1d;border-radius:16px;padding:18px}
+.work-row{margin:11px 0}.work-row label{display:flex;justify-content:space-between;color:#9aacc4;font-size:.7rem;margin-bottom:6px}
+.track{height:8px;border-radius:999px;background:#1b2940;overflow:hidden}.fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--cyan),var(--blue))}
+.map-pill{margin-top:12px;border:1px solid rgba(0,215,229,.2);background:rgba(0,215,229,.07);padding:10px 13px;border-radius:12px;color:#8de8ef;font-size:.72rem}
+section{padding:78px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:34px}
+.section-head.center{display:block;text-align:center;max-width:850px;margin:0 auto 42px}
+.section-head h2{font-size:clamp(2.2rem,4vw,3.5rem);line-height:1.05;letter-spacing:-.055em;margin-top:14px}
+.section-head p{max-width:560px;color:var(--muted);font-size:.94rem}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.cards.four{grid-template-columns:repeat(4,1fr)}
+.card{
+  position:relative;padding:25px;border:1px solid var(--line);border-radius:18px;
+  background:linear-gradient(145deg,rgba(9,19,38,.88),rgba(3,10,23,.9));
+  min-height:210px;overflow:hidden;transition:.25s ease
+}
+.card:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-70px;top:-70px;background:rgba(0,215,229,.06)}
+.card:hover{transform:translateY(-5px);border-color:rgba(0,215,229,.38);box-shadow:0 16px 45px rgba(0,0,0,.22)}
+.icon{width:45px;height:45px;border:1px solid rgba(0,215,229,.18);border-radius:13px;display:grid;place-items:center;color:var(--cyan);background:#050d1c;font-size:1.15rem;margin-bottom:20px}
+.card .tag{position:absolute;right:20px;top:22px;color:var(--cyan);font:700 .62rem ui-monospace,SFMono-Regular,Menlo,monospace;border:1px solid rgba(0,215,229,.25);padding:5px 9px;border-radius:999px;background:rgba(0,215,229,.05)}
+.card h3{font-size:1.22rem;margin-bottom:9px;letter-spacing:-.02em}.card p{color:#91a5c1;font-size:.88rem}
+.card-footer{position:absolute;left:25px;right:25px;bottom:20px;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#8ba0bd;font-size:.66rem}
+.card-footer b{color:var(--cyan);font-weight:700}
+.workflow{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.step{padding:22px;border:1px solid var(--line);border-radius:16px;background:#030a18;min-height:250px}
+.step-num{float:right;color:var(--cyan);font:700 .65rem ui-monospace,SFMono-Regular,Menlo,monospace;border:1px solid rgba(0,215,229,.2);padding:4px 8px;border-radius:999px}
+.step .icon{margin-bottom:17px}.step h3{font-size:1.08rem;margin:6px 0}.step p{font-size:.79rem;color:var(--muted)}.step small{display:block;margin-top:38px;color:#8295b2;font-size:.62rem}
+.dashboard-shell{border:1px solid var(--line);border-radius:24px;background:rgba(5,13,27,.75);padding:12px;box-shadow:var(--shadow)}
+.dashboard-top{display:flex;align-items:center;justify-content:space-between;padding:13px 12px 17px}
+.dashboard-title{font-weight:850}.status{color:#8ea0b9;font-size:.74rem;display:flex;align-items:center;gap:8px}
+.tableau-frame{width:100%;min-height:720px;border-radius:16px;overflow:hidden;background:white}
+.tableauPlaceholder{position:relative;width:100%;height:100%}.tableauViz{width:100%;height:100%}
+.dataset-box{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:35px;padding:48px;border:1px solid var(--line);
+  border-radius:22px;background:linear-gradient(145deg,#030b19,#061327)
+}
+.dataset-box h3{font-size:1.45rem;margin:10px 0 14px}.dataset-box p{color:#9cafc9;max-width:590px;font-size:.9rem}
+.info-list{margin-top:26px;display:grid;gap:14px}.info-list div{display:flex;gap:12px;color:#c8d3e3;font-size:.85rem}.check{color:var(--cyan)}
+.method{padding:24px;border:1px solid var(--line);border-radius:17px;background:#09162a}.method h4{color:#90a4c1;font:700 .72rem ui-monospace,SFMono-Regular,Menlo,monospace;border-bottom:1px solid var(--line);padding-bottom:14px}.method ul{list-style:none;display:grid;gap:15px;margin-top:18px}.method li{font-size:.83rem;color:#b6c5d9;padding-left:25px;position:relative}.method li:before{content:"✓";position:absolute;left:0;color:var(--cyan)}
+footer{border-top:1px solid var(--line);padding:30px 0 44px;color:#8294ae}.footer-inner{display:flex;justify-content:space-between;gap:20px}.footer-title{color:#f4f7fc;font-weight:850}
+.reveal{opacity:0;transform:translateY(18px);animation:reveal .75s ease forwards}.delay-1{animation-delay:.1s}.delay-2{animation-delay:.2s}.delay-3{animation-delay:.3s}
+@keyframes reveal{to{opacity:1;transform:none}}
+@media(max-width:1000px){.hero-grid,.dataset-box{grid-template-columns:1fr}.cards.four{grid-template-columns:1fr 1fr}.workflow{grid-template-columns:repeat(3,1fr)}.nav-links{display:none}}
+@media(max-width:680px){.hero{padding-top:60px}.cards,.cards.four,.workflow{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:13px}.dataset-box{padding:28px}.brand{min-width:auto}.brand-sub{display:none}.nav-cta{padding:9px 12px;font-size:.72rem}.tableau-frame{min-height:560px}.footer-inner{display:block}.footer-inner p{margin-top:8px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container nav-inner">
+    <a class="brand" href="#home">
+      <span class="brand-mark">▥</span>
+      <span><span class="brand-title">JobAnalytics <small>Tableau</small></span><span class="brand-sub">Global Internship &amp; Job Market</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#home">Home</a><a href="#project">Project</a><a href="#objectives">Objectives</a>
+      <a href="#analysis">Analysis</a><a href="#dashboard">Dashboard</a><a href="#dataset">Dataset</a><a href="#features">Features</a>
+    </div>
+    <a class="nav-cta" href="#dashboard">◉ &nbsp;Explore Dashboard</a>
+  </div>
+</nav>
+
+<main id="home">
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <span class="eyebrow">✦ Created by Prince Saini • Tableau Public Project</span>
+      <h1>Global Internship &amp; <span class="gradient">Job Market Analytics</span></h1>
+      <p>Turning job-posting data into meaningful insights on hiring trends, salaries, companies, countries and qualifications.</p>
+      <div class="actions">
+        <a class="btn primary" href="#dashboard">◉ &nbsp;Explore Dashboard&nbsp; →</a>
+        <a class="btn secondary" href="#project">View Project Details</a>
+      </div>
+    </div>
+    <div class="hero-card reveal delay-2">
+      <div class="windowbar"><span class="window-dots"><i></i><i></i><i></i></span><span>Job_Analytics_Overview.twbx</span><span class="live">◉ Live Demo View</span></div>
+      <div class="metric-grid">
+        <div class="metric-card"><span>▣ Job Postings</span><strong>Multi-Country</strong><em>Interactive Filter Active</em></div>
+        <div class="metric-card"><span>⌁ Salary Insights</span><strong>Comparative Pay</strong><em>Distribution Analysis</em></div>
+      </div>
+      <div class="work-bars">
+        <b style="font-size:.76rem">▥ Hiring Volume by Work Type</b>
+        <div class="work-row"><label><span>Remote / Hybrid</span><span>42%</span></label><div class="track"><div class="fill" style="width:42%"></div></div></div>
+        <div class="work-row"><label><span>On-Site / Office</span><span>58%</span></label><div class="track"><div class="fill" style="width:58%"></div></div></div>
+      </div>
+      <div class="map-pill">◎ &nbsp;Geographic Mapping (India vs Germany) <span style="float:right">Tableau Public</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="project">
+  <div class="container">
+    <div class="section-head">
+      <div><span class="eyebrow">Executive Briefing</span><h2>Project at a Glance</h2></div>
+      <p>Key architectural pillars defining the data scope, platform integration, and analytical depth of the global study.</p>
+    </div>
+    <div class="cards four">
+      <article class="card"><span class="tag">100K+ Postings</span><div class="icon">▤</div><small style="color:#6e87aa">DATA SOURCE</small><h3>Job Descriptions Dataset</h3><p>Global internship &amp; employment records captured across diverse sectors.</p><div class="card-footer"><span>Module Pillar 01</span><b>Verified ◉</b></div></article>
+      <article class="card"><span class="tag">Cloud VIZ</span><div class="icon">▦</div><small style="color:#6e87aa">ANALYTICS PLATFORM</small><h3>Tableau Public</h3><p>Interactive visual dashboards equipped with dynamic multi-parameter filtering.</p><div class="card-footer"><span>Module Pillar 02</span><b>Verified ◉</b></div></article>
+      <article class="card"><span class="tag">6 Core Modules</span><div class="icon">⌁</div><small style="color:#6e87aa">PROJECT TYPE</small><h3>Data Analytics Study</h3><p>Comparative market intelligence structured into rigorous analytical tasks.</p><div class="card-footer"><span>Module Pillar 03</span><b>Verified ◉</b></div></article>
+      <article class="card"><span class="tag">Multi-Hub</span><div class="icon">▱</div><small style="color:#6e87aa">ANALYSIS SCOPE</small><h3>Hiring • Salary • Regions</h3><p>Holistic review of salary distributions, companies, and qualifications.</p><div class="card-footer"><span>Module Pillar 04</span><b>Verified ◉</b></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="objectives">
+  <div class="container">
+    <div class="section-head center"><span class="eyebrow">Analytical Scope</span><h2>What This Project Explores</h2><p style="margin:15px auto 0">Six core analytical dimensions uncovered through rigorous Tableau visualizations and multi-parameter filtering.</p></div>
+    <div class="cards">
+      <article class="card"><span class="tag">Task 01</span><div class="icon">⌁</div><small style="color:#6e87aa">DIMENSION • VOLUME &amp; GROWTH</small><h3>Hiring Trends</h3><p>Analyze internship and job opportunities across companies and locations with dynamic filtering.</p><div class="card-footer"><span>Tableau View Ready</span><b>Explore →</b></div></article>
+      <article class="card"><span class="tag">Task 02</span><div class="icon">♧</div><small style="color:#6e87aa">DIMENSION • WORK MODEL</small><h3>Workforce Preferences</h3><p>Explore the relationship between candidate preference and various work types such as Remote, Hybrid and On-site.</p><div class="card-footer"><span>Tableau View Ready</span><b>Explore →</b></div></article>
+      <article class="card"><span class="tag">Task 03</span><div class="icon">$</div><small style="color:#6e87aa">DIMENSION • PAY BENCHMARKS</small><h3 style="color:#54e8dc">Salary Insights</h3><p>Understand internship salary distributions, comparative pay ranges, and variations across sectors.</p><div class="card-footer"><span style="color:var(--cyan)">Tableau View Ready</span><b>Explore →</b></div></article>
+      <article class="card"><span class="tag">Task 04</span><div class="icon">▥</div><small style="color:#6e87aa">DIMENSION • EMPLOYER SCALE</small><h3>Company Analysis</h3><p>Compare organizations based on company size, industry classification, and active hiring volume.</p><div class="card-footer"><span>Tableau View Ready</span><b>Explore →</b></div></article>
+      <article class="card"><span class="tag">Task 05</span><div class="icon">◎</div><small style="color:#6e87aa">DIMENSION • INDIA VS GERMANY</small><h3>Country Comparison</h3><p>Analyze job opportunities, work types, and regional hiring patterns between key hubs.</p><div class="card-footer"><span>Tableau View Ready</span><b>Explore →</b></div></article>
+      <article class="card"><span class="tag">Task 06</span><div class="icon">◇</div><small style="color:#6e87aa">DIMENSION • SKILL MAPPING</small><h3>Qualification Analysis</h3><p>Explore job opportunities based on educational qualifications and prerequisite skill requirements.</p><div class="card-footer"><span>Tableau View Ready</span><b>Explore →</b></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="dashboard">
+  <div class="container">
+    <div class="section-head center"><span class="eyebrow">Interactive Visualization</span><h2>Explore the Interactive Dashboard</h2><p style="margin:15px auto 0">Interact directly with the published Tableau analysis. Use filters, navigation controls, maps and visualizations to explore the job market from multiple perspectives.</p></div>
+    <div class="dashboard-shell">
+      <div class="dashboard-top"><div class="dashboard-title">◉ Tableau Public Live Viz</div><div class="status"><span class="dot"></span> Interactive dashboard</div></div>
+      <div class="tableau-frame">
+        <div class="tableauPlaceholder" id="viz1786190534253">
+          <noscript><a href="https://public.tableau.com/views/JobAnalyticsInternshipProject/JobAnalysisProject"><img alt="Job Analysis Project" src="https://public.tableau.com/static/images/Jo/JobAnalyticsInternshipProject/JobAnalysisProject/1_rss.png" style="width:100%;border:0"></a></noscript>
+          <object class="tableauViz" style="display:none;">
+            <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F">
+            <param name="embed_code_version" value="3">
+            <param name="site_root" value="">
+            <param name="name" value="JobAnalyticsInternshipProject/JobAnalysisProject">
+            <param name="tabs" value="no"><param name="toolbar" value="yes">
+            <param name="static_image" value="https://public.tableau.com/static/images/Jo/JobAnalyticsInternshipProject/JobAnalysisProject/1.png">
+            <param name="animate_transition" value="yes"><param name="display_static_image" value="yes">
+            <param name="display_spinner" value="yes"><param name="display_overlay" value="yes"><param name="display_count" value="yes">
+            <param name="language" value="en-GB"><param name="filter" value="publish=yes">
+          </object>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="analysis">
+  <div class="container">
+    <div class="section-head center"><span class="eyebrow">Analytical Modules</span><h2>Explore the Analysis</h2><p style="margin:15px auto 0">Six visually distinct project modules detailing specific facets of the global job market.</p></div>
+    <div class="cards">
+      <article class="card"><span class="tag">Task 01</span><div class="icon">♧</div><h3>Workforce Preferences</h3><p>Explore the relationship between candidate preferences and different work types.</p><div class="card-footer"><b>Explore Analysis →</b></div></article>
+      <article class="card"><span class="tag">Task 02</span><div class="icon">▦</div><h3>Company Scale &amp; Opportunity</h3><p>Compare company size and hiring opportunities using experience, salary and work-type criteria.</p><div class="card-footer"><b>Explore Analysis →</b></div></article>
+      <article class="card"><span class="tag">Task 03</span><div class="icon">$</div><h3>Internship Pay Landscape</h3><p>Analyze internship salary ranges, distributions, averages and variations.</p><div class="card-footer"><b>Explore Analysis →</b></div></article>
+      <article class="card"><span class="tag">Task 04</span><div class="icon">◎</div><h3>India vs Germany</h3><p>Compare job opportunities, work types and hiring patterns between the two markets.</p><div class="card-footer"><b>Explore Analysis →</b></div></article>
+      <article class="card"><span class="tag">Task 05</span><div class="icon">♙</div><h3>Top Hiring Companies</h3><p>Identify leading companies based on selected hiring and job-posting criteria.</p><div class="card-footer"><b>Explore Analysis →</b></div></article>
+      <article class="card"><span class="tag">Task 06</span><div class="icon">✦</div><h3>Qualification Opportunity Map</h3><p>Explore geographically distributed job opportunities based on qualification requirements.</p><div class="card-footer"><b>Explore Analysis →</b></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="dataset">
+  <div class="container">
+    <div class="section-head center"><span class="eyebrow">Analyst Portfolio • Prince Saini</span><h2>About the Dataset &amp; Author</h2><p style="margin:15px auto 0">Rigorous examination of raw job-posting records through Tableau visual analytics.</p></div>
+    <div class="dataset-box">
+      <div>
+        <span style="color:var(--cyan);font:700 .7rem ui-monospace">PRIMARY SOURCE</span>
+        <h3>▤ &nbsp;Job Descriptions Dataset</h3>
+        <p>This project analyzes comprehensive global job-posting data using Tableau Public. The repository captures multi-regional internship and employment records across diverse industries, company scales, and experience tiers.</p>
+        <div class="info-list">
+          <div><span class="check">✓</span><b>Project Author:</b> Prince Saini</div>
+          <div><span class="check">✓</span><b>File:</b> job_descriptions.csv</div>
+          <div><span class="check">✓</span><b>Platform:</b> Tableau Public</div>
+        </div>
+      </div>
+      <div class="method">
+        <h4>Analysis Methodology <span style="float:right;color:var(--cyan)">Tableau Engine</span></h4>
+        <ul>
+          <li>Interactive visual analysis using advanced filters and calculated fields.</li>
+          <li>Geographic mapping utilizing latitude and longitude coordinates.</li>
+          <li>Multi-parameter story navigation connecting salary, company and role insights.</li>
+        </ul>
+        <div style="margin-top:18px;padding:13px;border-radius:14px;background:#050d1c;color:#8fa4c0;font-size:.72rem">Note: Raw data is presented through Tableau visualizations without artificial modifications or synthesized data claims.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <div class="section-head center"><span class="eyebrow">Technical Capabilities</span><h2>Built for Interactive Exploration</h2><p style="margin:15px auto 0">Advanced Tableau features powering the global job market analytical experience.</p></div>
+    <div class="cards">
+      <article class="card"><span class="tag">Tableau Cloud</span><div class="icon">▦</div><h3>Interactive Dashboards</h3><p>Multi-tab dashboards enabling seamless navigation across job market dimensions.</p><div class="card-footer"><span>Feature 01</span><b>Active ◉</b></div></article>
+      <article class="card"><span class="tag">Real-time</span><div class="icon">⌁</div><h3>Dynamic Filters</h3><p>Real-time parameter filtering by country, industry and salary threshold.</p><div class="card-footer"><span>Feature 02</span><b>Active ◉</b></div></article>
+      <article class="card"><span class="tag">Aggregated</span><div class="icon">▤</div><h3>Calculated Fields</h3><p>Custom formulas and aggregations derived directly from job-posting attributes.</p><div class="card-footer"><span>Feature 03</span><b>Active ◉</b></div></article>
+      <article class="card"><span class="tag">Spatial</span><div class="icon">▧</div><h3>Geographic Mapping</h3><p>Spatial visualization comparing opportunities across international hubs.</p><div class="card-footer"><span>Feature 04</span><b>Active ◉</b></div></article>
+      <article class="card"><span class="tag">Coordinates</span><div class="icon">◎</div><h3>Latitude &amp; Longitude Analysis</h3><p>Coordinate-based spatial mapping for precise regional distribution.</p><div class="card-footer"><span>Feature 05</span><b>Active ◉</b></div></article>
+      <article class="card"><span class="tag">Hierarchical</span><div class="icon">⌕</div><h3>Drill-down Analysis</h3><p>Hierarchical data exploration from macro market trends to specific roles.</p><div class="card-footer"><span>Feature 06</span><b>Active ◉</b></div></article>
+      <article class="card"><span class="tag">Benchmarking</span><div class="icon">▥</div><h3>Company Comparisons</h3><p>Side-by-side benchmarking of enterprise recruiting activity and scale.</p><div class="card-footer"><span>Feature 07</span><b>Active ◉</b></div></article>
+      <article class="card"><span class="tag">Pay Ranges</span><div class="icon">$</div><h3>Salary Analysis</h3><p>Detailed distributions and median compensation benchmarks for interns.</p><div class="card-footer"><span>Feature 08</span><b>Active ◉</b></div></article>
+      <article class="card"><span class="tag">Narratives</span><div class="icon">▢</div><h3>Story Navigation</h3><p>Guided analytical narratives linking raw data to actionable insights.</p><div class="card-footer"><span>Feature 09</span><b>Active ◉</b></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="workflow">
+  <div class="container">
+    <div class="section-head center"><span class="eyebrow">Methodology</span><h2>Project Workflow</h2><p style="margin:15px auto 0">Structured analytical pipeline from raw dataset ingestion to actionable market insights.</p></div>
+    <div class="workflow">
+      <article class="step"><span class="step-num">01</span><div class="icon">▤</div><small>COLLECTION</small><h3>DATA</h3><p>Job and internship posting dataset ingestion.</p><small>Stage 01</small></article>
+      <article class="step"><span class="step-num">02</span><div class="icon">▽</div><small>REFINEMENT</small><h3>FILTER</h3><p>Apply assignment-specific criteria and parameters.</p><small>Stage 02</small></article>
+      <article class="step"><span class="step-num">03</span><div class="icon">⌕</div><small>EVALUATION</small><h3>ANALYZE</h3><p>Identify patterns and comparative metrics.</p><small>Stage 03</small></article>
+      <article class="step"><span class="step-num">04</span><div class="icon">▥</div><small>MAPPING</small><h3>VISUALIZE</h3><p>Build Tableau charts and geographic maps.</p><small>Stage 04</small></article>
+      <article class="step"><span class="step-num">05</span><div class="icon">◎</div><small>ENGAGEMENT</small><h3>INTERACT</h3><p>Explore dynamic filters and dashboards.</p><small>Stage 05</small></article>
+      <article class="step"><span class="step-num">06</span><div class="icon">♧</div><small>CONCLUSION</small><h3>INSIGHT</h3><p>Understand global hiring trends and salary dynamics.</p><small>Stage 06</small></article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div><div class="footer-title">JobAnalytics • Internship Project</div><p>Interactive data visualization &amp; project showcase.</p></div>
+    <p>© <span id="year"></span> • Created by <strong style="color:white">Prince Saini</strong> • Built for internship presentation</p>
+  </div>
+</footer>
+
+<script>
+const divElement=document.getElementById('viz1786190534253');
+const vizElement=divElement.getElementsByTagName('object')[0];
+function sizeTableau(){
+  const width=divElement.offsetWidth;
+  vizElement.style.width='100%';
+  vizElement.style.height=Math.max(650,Math.round(width*.70))+'px';
+}
+sizeTableau();
+const scriptElement=document.createElement('script');
+scriptElement.src='https://public.tableau.com/javascripts/api/viz_v1.js';
+vizElement.parentNode.insertBefore(scriptElement,vizElement);
+window.addEventListener('resize',sizeTableau);
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
