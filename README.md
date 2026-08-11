@@ -1,6 +1,6 @@
 # Job Analytics – Global Internship & Job Analytics
 
-Job Analytics is an interactive data analytics and visualization project developed to analyze global job and internship market trends using a comprehensive job-posting dataset. The project uses **Tableau Public** to transform raw job data into interactive dashboards, charts, filters, and geographic visualizations.
+**Job Analytics** is an interactive data analytics and visualization project developed to analyze global job and internship market trends using a comprehensive job-posting dataset. The project uses **Tableau Public** to transform raw job data into interactive dashboards, charts, filters, and geographic visualizations.
 
 The analysis focuses on key factors such as **hiring trends, salary ranges, work types, company size, qualifications, job opportunities, and regional hiring patterns**. Users can interact with the dashboards using dynamic filters to explore specific countries, industries, salary thresholds, job roles, and other job-related attributes.
 
